@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload de Documento - Testamento Vital Digital</title>
+    <meta name="description" content="Importe seus documentos de testamento vital existentes com cálculo automático de hash e verificação de integridade." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftestamento8674back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="landing_page.html" class="flex items-center">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold text-primary">Testamento Vital Digital</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="document_dashboard.html" class="text-text-secondary hover:text-primary transition-standard">Dashboard</a>
+                    <a href="living_will_wizard.html" class="text-text-secondary hover:text-primary transition-standard">Criar Testamento</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <button type="button" class="text-text-secondary hover:text-primary transition-standard" onclick="logout()">Sair</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-100">
+                    <a href="document_dashboard.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Dashboard</a>
+                    <a href="living_will_wizard.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Criar Testamento</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <button type="button" class="block w-full text-left px-3 py-2 text-text-secondary hover:text-primary transition-standard" onclick="logout()">Sair</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Breadcrumb -->
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="document_dashboard.html" class="inline-flex items-center text-sm font-medium text-text-secondary hover:text-primary transition-standard">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="ml-1 text-sm font-medium text-text-primary">Upload de Documento</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-heading font-semibold text-text-primary mb-2">
+                Upload de Documento
+            </h1>
+            <p class="text-lg text-text-secondary">
+                Importe seus documentos de testamento vital existentes com verificação automática de integridade
+            </p>
+        </div>
+
+        <!-- Upload Form -->
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Main Upload Section -->
+            <div class="lg:col-span-2">
+                <div class="card">
+                    <!-- Upload Zone -->
+                    <div id="upload-zone" class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center hover:border-primary-400 transition-standard cursor-pointer">
+                        <div id="upload-idle" class="space-y-4">
+                            <div class="mx-auto w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-text-primary mb-2">
+                                    Arraste seu arquivo PDF aqui
+                                </h3>
+                                <p class="text-text-secondary mb-4">
+                                    ou clique para selecionar do seu dispositivo
+                                </p>
+                                <button type="button" class="btn-primary" onclick="document.getElementById('file-input').click()">
+                                    Selecionar Arquivo
+                                </button>
+                            </div>
+                            <p class="text-sm text-text-secondary">
+                                Apenas arquivos PDF • Máximo 10MB
+                            </p>
+                        </div>
+
+                        <!-- Upload Progress -->
+                        <div id="upload-progress" class="hidden space-y-4">
+                            <div class="mx-auto w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-primary animate-spin" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-text-primary mb-2">
+                                    Processando arquivo...
+                                </h3>
+                                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                                    <div id="progress-bar" class="bg-primary h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
+                                <p id="progress-text" class="text-sm text-text-secondary">
+                                    Calculando hash SHA-256...
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Upload Success -->
+                        <div id="upload-success" class="hidden space-y-4">
+                            <div class="mx-auto w-16 h-16 bg-success-100 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-text-primary mb-2">
+                                    Arquivo processado com sucesso!
+                                </h3>
+                                <p class="text-text-secondary">
+                                    Hash calculado e metadados extraídos
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Upload Error -->
+                        <div id="upload-error" class="hidden space-y-4">
+                            <div class="mx-auto w-16 h-16 bg-error-100 rounded-full flex items-center justify-center">
+                                <svg class="w-8 h-8 text-error" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-medium text-text-primary mb-2">
+                                    Erro no processamento
+                                </h3>
+                                <p id="error-message" class="text-error mb-4">
+                                    Formato de arquivo não suportado
+                                </p>
+                                <button type="button" class="bg-white text-primary border-2 border-primary px-6 py-2 rounded-md font-medium hover:bg-primary-50 transition-standard" onclick="resetUpload()">
+                                    Tentar Novamente
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden File Input -->
+                    <input type="file" id="file-input" accept=".pdf" class="hidden" />
+
+                    <!-- Document Metadata Form -->
+                    <div id="metadata-form" class="hidden mt-8 pt-8 border-t border-gray-200">
+                        <h3 class="text-lg font-medium text-text-primary mb-6">
+                            Informações do Documento
+                        </h3>
+                        <form class="space-y-6">
+                            <div>
+                                <label for="document-title" class="block text-sm font-medium text-text-primary mb-2">
+                                    Título do Documento *
+                                </label>
+                                <input type="text" id="document-title" name="document-title" required class="form-input" placeholder="Ex: Testamento Vital - João Silva" />
+                                <div class="validation-message error hidden" id="title-error">
+                                    Por favor, insira um título para o documento
+                                </div>
+                            </div>
+
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="creation-date" class="block text-sm font-medium text-text-primary mb-2">
+                                        Data de Criação *
+                                    </label>
+                                    <input type="date" id="creation-date" name="creation-date" required class="form-input" max="2025-09-26" />
+                                    <div class="validation-message error hidden" id="date-error">
+                                        Por favor, selecione a data de criação
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="document-version" class="block text-sm font-medium text-text-primary mb-2">
+                                        Versão
+                                    </label>
+                                    <input type="text" id="document-version" name="document-version" class="form-input" placeholder="Ex: 1.0" value="1.0" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="document-notes" class="block text-sm font-medium text-text-primary mb-2">
+                                    Notas Adicionais
+                                </label>
+                                <textarea id="document-notes" name="document-notes" rows="3" class="form-input resize-none" placeholder="Adicione observações sobre este documento..."></textarea>
+                            </div>
+
+                            <!-- Document Hash Display -->
+                            <div id="hash-display" class="bg-surface p-4 rounded-lg">
+                                <h4 class="text-sm font-medium text-text-primary mb-2">
+                                    Hash SHA-256 (Verificação de Integridade)
+                                </h4>
+                                <div class="flex items-center space-x-2">
+                                    <code id="document-hash" class="font-mono text-sm text-text-secondary bg-white px-3 py-2 rounded border flex-1">
+                                        Calculando...
+                                    </code>
+                                    <button type="button" class="text-primary hover:text-primary-700 p-2" onclick="copyHash()" title="Copiar hash">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Action Buttons -->
+                            <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                                <button type="submit" class="btn-primary flex-1">
+                                    <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                    Salvar Documento
+                                </button>
+                                <button type="button" class="bg-white text-text-secondary border border-gray-300 px-6 py-3 rounded-md font-medium hover:bg-gray-50 transition-standard flex-1" onclick="resetUpload()">
+                                    Cancelar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Sidebar -->
+            <div class="space-y-6">
+                <!-- Hash Information -->
+                <div class="card">
+                    <div class="flex items-start">
+                        <div class="bg-secondary-100 p-2 rounded-full mr-4 mt-1">
+                            <svg class="w-5 h-5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary mb-2">
+                                Verificação de Integridade
+                            </h3>
+                            <p class="text-sm text-text-secondary">
+                                O hash SHA-256 garante que seu documento não foi alterado desde o upload, 
+                                fornecendo prova criptográfica de integridade.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Information -->
+                <div class="card">
+                    <div class="flex items-start">
+                        <div class="bg-primary-100 p-2 rounded-full mr-4 mt-1">
+                            <svg class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-text-primary mb-2">
+                                Armazenamento Seguro
+                            </h3>
+                            <p class="text-sm text-text-secondary">
+                                Seus documentos são criptografados e armazenados com segurança, 
+                                em conformidade com a LGPD.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Requirements -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">
+                        Requisitos do Arquivo
+                    </h3>
+                    <ul class="space-y-2 text-sm text-text-secondary">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Formato PDF apenas
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Tamanho máximo: 10MB
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Texto legível (não escaneado)
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Sem proteção por senha
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <h3 class="font-semibold text-text-primary mb-4">
+                        Ações Rápidas
+                    </h3>
+                    <div class="space-y-3">
+                        <a href="living_will_wizard.html" class="block w-full bg-primary-50 text-primary text-center px-4 py-3 rounded-md font-medium hover:bg-primary-100 transition-standard">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+                            </svg>
+                            Criar Novo Testamento
+                        </a>
+                        <a href="document_dashboard.html" class="block w-full bg-white text-text-secondary text-center px-4 py-3 rounded-md font-medium border border-gray-300 hover:bg-gray-50 transition-standard">
+                            <svg class="w-5 h-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                            </svg>
+                            Ver Documentos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold">Testamento Vital Digital</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Plataforma segura e legal para criação de testamentos vitais no Brasil, 
+                        em conformidade com a LGPD e o marco regulatório brasileiro.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">LGPD</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SSL</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SHA-256</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about_us.html" class="text-gray-300 hover:text-white transition-standard">Sobre</a></li>
+                        <li><a href="user_registration.html" class="text-gray-300 hover:text-white transition-standard">Criar Conta</a></li>
+                        <li><a href="user_login.html" class="text-gray-300 hover:text-white transition-standard">Entrar</a></li>
+                        <li><a href="living_will_wizard.html" class="text-gray-300 hover:text-white transition-standard">Criar Testamento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Termos de Uso</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Política de Privacidade</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">LGPD</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Suporte</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Testamento Vital Digital. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let uploadedFile = null;
+        let documentHash = null;
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // File upload handling
+        const uploadZone = document.getElementById('upload-zone');
+        const fileInput = document.getElementById('file-input');
+
+        // Drag and drop functionality
+        uploadZone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            uploadZone.classList.add('border-primary-400', 'bg-primary-50');
+        });
+
+        uploadZone.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            uploadZone.classList.remove('border-primary-400', 'bg-primary-50');
+        });
+
+        uploadZone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            uploadZone.classList.remove('border-primary-400', 'bg-primary-50');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileUpload(files[0]);
+            }
+        });
+
+        // Click to upload
+        uploadZone.addEventListener('click', function() {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function(e) {
+            if (e.target.files.length > 0) {
+                handleFileUpload(e.target.files[0]);
+            }
+        });
+
+        // File upload handler
+        function handleFileUpload(file) {
+            // Validate file
+            if (!validateFile(file)) {
+                return;
+            }
+
+            uploadedFile = file;
+            showUploadProgress();
+            
+            // Simulate file processing
+            simulateFileProcessing(file);
+        }
+
+        // File validation
+        function validateFile(file) {
+            const maxSize = 10 * 1024 * 1024; // 10MB
+            const allowedTypes = ['application/pdf'];
+
+            if (!allowedTypes.includes(file.type)) {
+                showUploadError('Apenas arquivos PDF são aceitos.');
+                return false;
+            }
+
+            if (file.size > maxSize) {
+                showUploadError('O arquivo é muito grande. Tamanho máximo: 10MB.');
+                return false;
+            }
+
+            return true;
+        }
+
+        // Show upload progress
+        function showUploadProgress() {
+            document.getElementById('upload-idle').classList.add('hidden');
+            document.getElementById('upload-success').classList.add('hidden');
+            document.getElementById('upload-error').classList.add('hidden');
+            document.getElementById('upload-progress').classList.remove('hidden');
+        }
+
+        // Simulate file processing with progress
+        function simulateFileProcessing(file) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            let progress = 0;
+
+            const interval = setInterval(() => {
+                progress += Math.random() * 20;
+                
+                if (progress < 30) {
+                    progressText.textContent = 'Validando arquivo...';
+                } else if (progress < 60) {
+                    progressText.textContent = 'Extraindo metadados...';
+                } else if (progress < 90) {
+                    progressText.textContent = 'Calculando hash SHA-256...';
+                } else {
+                    progressText.textContent = 'Finalizando processamento...';
+                }
+
+                progressBar.style.width = Math.min(progress, 100) + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Calculate hash (simulated)
+                    calculateFileHash(file).then(hash => {
+                        documentHash = hash;
+                        showUploadSuccess();
+                        showMetadataForm();
+                    });
+                }
+            }, 200);
+        }
+
+        // Calculate file hash using Web Crypto API
+        async function calculateFileHash(file) {
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                return hashHex;
+            } catch (error) {
+                console.error('Error calculating hash:', error);
+                // Fallback to simulated hash
+                return 'a1b2c3d4e5f6789012345678901234567890abcdef1234567890abcdef123456';
+            }
+        }
+
+        // Show upload success
+        function showUploadSuccess() {
+            document.getElementById('upload-progress').classList.add('hidden');
+            document.getElementById('upload-success').classList.remove('hidden');
+        }
+
+        // Show upload error
+        function showUploadError(message) {
+            document.getElementById('upload-idle').classList.add('hidden');
+            document.getElementById('upload-progress').classList.add('hidden');
+            document.getElementById('upload-success').classList.add('hidden');
+            document.getElementById('upload-error').classList.remove('hidden');
+            document.getElementById('error-message').textContent = message;
+        }
+
+        // Show metadata form
+        function showMetadataForm() {
+            document.getElementById('metadata-form').classList.remove('hidden');
+            document.getElementById('document-hash').textContent = documentHash;
+            
+            // Pre-fill form with file name
+            const fileName = uploadedFile.name.replace('.pdf', '');
+            document.getElementById('document-title').value = fileName;
+            
+            // Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('creation-date').value = today;
+        }
+
+        // Reset upload
+        function resetUpload() {
+            uploadedFile = null;
+            documentHash = null;
+            fileInput.value = '';
+            
+            document.getElementById('upload-idle').classList.remove('hidden');
+            document.getElementById('upload-progress').classList.add('hidden');
+            document.getElementById('upload-success').classList.add('hidden');
+            document.getElementById('upload-error').classList.add('hidden');
+            document.getElementById('metadata-form').classList.add('hidden');
+            
+            // Clear form
+            document.querySelector('#metadata-form form').reset();
+            clearValidationErrors();
+        }
+
+        // Copy hash to clipboard
+        function copyHash() {
+            const hashElement = document.getElementById('document-hash');
+            const hash = hashElement.textContent;
+            
+            navigator.clipboard.writeText(hash).then(() => {
+                // Show temporary success message
+                const originalText = hashElement.textContent;
+                hashElement.textContent = 'Hash copiado!';
+                hashElement.classList.add('text-success');
+                
+                setTimeout(() => {
+                    hashElement.textContent = originalText;
+                    hashElement.classList.remove('text-success');
+                }, 2000);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = hash;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                alert('Hash copiado para a área de transferência!');
+            });
+        }
+
+        // Form validation
+        function validateForm() {
+            let isValid = true;
+            clearValidationErrors();
+
+            const title = document.getElementById('document-title').value.trim();
+            const date = document.getElementById('creation-date').value;
+
+            if (!title) {
+                showValidationError('title-error', 'Por favor, insira um título para o documento');
+                isValid = false;
+            }
+
+            if (!date) {
+                showValidationError('date-error', 'Por favor, selecione a data de criação');
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Show validation error
+        function showValidationError(elementId, message) {
+            const errorElement = document.getElementById(elementId);
+            errorElement.textContent = message;
+            errorElement.classList.remove('hidden');
+        }
+
+        // Clear validation errors
+        function clearValidationErrors() {
+            const errorElements = document.querySelectorAll('.validation-message.error');
+            errorElements.forEach(element => {
+                element.classList.add('hidden');
+            });
+        }
+
+        // Form submission
+        document.querySelector('#metadata-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateForm()) {
+                return;
+            }
+
+            // Simulate saving document
+            const formData = new FormData(this);
+            const documentData = {
+                id: Date.now().toString(),
+                title: formData.get('document-title'),
+                creationDate: formData.get('creation-date'),
+                version: formData.get('document-version') || '1.0',
+                notes: formData.get('document-notes'),
+                hash: documentHash,
+                uploadDate: new Date().toISOString(),
+                fileSize: uploadedFile.size,
+                fileName: uploadedFile.name
+            };
+
+            // Save to localStorage (mock storage)
+            const existingDocs = JSON.parse(localStorage.getItem('documents') || '[]');
+            existingDocs.push(documentData);
+            localStorage.setItem('documents', JSON.stringify(existingDocs));
+
+            // Show success message and redirect
+            alert('Documento salvo com sucesso!');
+            window.location.href = 'document_dashboard.html';
+        });
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('currentUser');
+            window.location.href = 'landing_page.html';
+        }
+
+        // Check authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                window.location.href = 'user_login.html';
+                return;
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

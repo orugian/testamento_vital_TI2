@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta - Testamento Vital Digital</title>
+    <meta name="description" content="Crie sua conta na plataforma de testamentos vitais digitais. Seguro, privado e em conformidade com a LGPD." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftestamento8674back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="landing_page.html" class="flex items-center">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold text-primary">Testamento Vital Digital</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <a href="user_login.html" class="text-text-secondary hover:text-primary transition-standard">Entrar</a>
+                    <a href="user_registration.html" class="btn-primary">Criar Conta</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-100">
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <a href="user_login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Entrar</a>
+                    <a href="user_registration.html" class="block px-3 py-2 bg-primary text-white rounded-md text-center">Criar Conta</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="py-12 lg:py-16">
+        <div class="max-w-md mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-heading font-semibold text-text-primary mb-4">
+                    Criar Conta
+                </h1>
+                <p class="text-lg text-text-secondary">
+                    Crie sua conta para começar a documentar suas preferências de tratamento médico
+                </p>
+            </div>
+
+            <!-- Registration Form -->
+            <div class="card">
+                <form id="registration-form" class="space-y-6">
+                    <!-- Full Name -->
+                    <div>
+                        <label for="fullName" class="block text-sm font-medium text-text-primary mb-2">
+                            Nome Completo *
+                        </label>
+                        <input type="text" id="fullName" name="fullName" class="form-input" placeholder="Digite seu nome completo" required />
+                        <div class="validation-message" id="fullName-error"></div>
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                            E-mail *
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="Digite seu e-mail" required />
+                        <div class="validation-message" id="email-error"></div>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                            Senha *
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="form-input pr-12" placeholder="Digite sua senha" required />
+                            <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-text-primary">
+                                <svg class="h-5 w-5" id="eye-closed" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                                </svg>
+                                <svg class="h-5 w-5 hidden" id="eye-open" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Password Strength Indicator -->
+                        <div class="mt-2">
+                            <div class="flex items-center space-x-2">
+                                <div class="flex-1 bg-gray-200 rounded-full h-2">
+                                    <div id="password-strength-bar" class="h-2 rounded-full transition-all duration-300 w-0"></div>
+                                </div>
+                                <span id="password-strength-text" class="text-sm text-text-secondary"></span>
+                            </div>
+                            <div class="mt-1 text-xs text-text-secondary">
+                                A senha deve ter pelo menos 8 caracteres, incluindo maiúsculas, minúsculas, números e símbolos
+                            </div>
+                        </div>
+                        <div class="validation-message" id="password-error"></div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-text-primary mb-2">
+                            Confirmar Senha *
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="form-input pr-12" placeholder="Confirme sua senha" required />
+                            <button type="button" id="toggle-confirm-password" class="absolute inset-y-0 right-0 pr-3 flex items-center text-text-secondary hover:text-text-primary">
+                                <svg class="h-5 w-5" id="eye-closed-confirm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                                </svg>
+                                <svg class="h-5 w-5 hidden" id="eye-open-confirm" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="validation-message" id="confirmPassword-error"></div>
+                    </div>
+
+                    <!-- LGPD Consent -->
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="lgpd-consent" name="lgpd-consent" type="checkbox" class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2" required />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="lgpd-consent" class="text-text-primary">
+                                    Eu concordo com o tratamento dos meus dados pessoais conforme a 
+                                    <a href="javascript:void(0)" class="text-primary hover:text-primary-700 underline" id="privacy-policy-link">
+                                        Política de Privacidade
+                                    </a> e autorizo o processamento dos dados para os fins descritos. *
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms-consent" name="terms-consent" type="checkbox" class="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary-500 focus:ring-2" required />
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms-consent" class="text-text-primary">
+                                    Eu li e aceito os 
+                                    <a href="javascript:void(0)" class="text-primary hover:text-primary-700 underline" id="terms-service-link">
+                                        Termos de Serviço
+                                    </a> da plataforma. *
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4">
+                        <button type="submit" id="submit-button" class="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center" disabled>
+                            <span id="submit-text">Criar Conta</span>
+                            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" id="loading-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Login Link -->
+                    <div class="text-center pt-4 border-t border-gray-100">
+                        <p class="text-text-secondary">
+                            Já tem conta? 
+                            <a href="user_login.html" class="text-primary hover:text-primary-700 font-medium">
+                                Fazer login
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Trust Signals -->
+            <div class="mt-8 text-center">
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="h-4 w-4 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-xs font-medium text-text-primary">LGPD Compliant</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="h-4 w-4 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-xs font-medium text-text-primary">Dados Seguros</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+                        <svg class="h-4 w-4 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="text-xs font-medium text-text-primary">Criptografia SHA-256</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold">Testamento Vital Digital</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Plataforma segura e legal para criação de testamentos vitais no Brasil, 
+                        em conformidade com a LGPD e o marco regulatório brasileiro.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">LGPD</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SSL</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SHA-256</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about_us.html" class="text-gray-300 hover:text-white transition-standard">Sobre</a></li>
+                        <li><a href="user_registration.html" class="text-gray-300 hover:text-white transition-standard">Criar Conta</a></li>
+                        <li><a href="user_login.html" class="text-gray-300 hover:text-white transition-standard">Entrar</a></li>
+                        <li><a href="living_will_wizard.html" class="text-gray-300 hover:text-white transition-standard">Criar Testamento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Termos de Uso</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Política de Privacidade</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">LGPD</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Suporte</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Testamento Vital Digital. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-heading font-semibold text-text-primary">Política de Privacidade</h2>
+                    <button id="close-privacy-modal" class="text-text-secondary hover:text-text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="prose prose-sm max-w-none text-text-secondary">
+                    <p class="mb-4">Esta Política de Privacidade descreve como coletamos, usamos e protegemos suas informações pessoais em conformidade com a Lei Geral de Proteção de Dados (LGPD).</p>
+                    <h3 class="text-text-primary font-semibold mt-4 mb-2">Dados Coletados</h3>
+                    <p class="mb-4">Coletamos apenas os dados necessários para o funcionamento da plataforma: nome completo, e-mail e preferências de tratamento médico documentadas em seu testamento vital.</p>
+                    <h3 class="text-text-primary font-semibold mt-4 mb-2">Uso dos Dados</h3>
+                    <p class="mb-4">Seus dados são utilizados exclusivamente para: criação e manutenção de sua conta, geração de documentos de testamento vital, e comunicações relacionadas ao serviço.</p>
+                    <h3 class="text-text-primary font-semibold mt-4 mb-2">Segurança</h3>
+                    <p class="mb-4">Utilizamos criptografia SHA-256 e armazenamento seguro para proteger suas informações. Seus documentos são criptografados e acessíveis apenas por você.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-heading font-semibold text-text-primary">Termos de Serviço</h2>
+                    <button id="close-terms-modal" class="text-text-secondary hover:text-text-primary">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="prose prose-sm max-w-none text-text-secondary">
+                    <p class="mb-4">Ao usar nossa plataforma, você concorda com os seguintes termos e condições de uso.</p>
+                    <h3 class="text-text-primary font-semibold mt-4 mb-2">Uso da Plataforma</h3>
+                    <p class="mb-4">A plataforma destina-se à criação de testamentos vitais em conformidade com a legislação brasileira. Você é responsável pela veracidade das informações fornecidas.</p>
+                    <h3 class="text-text-primary font-semibold mt-4 mb-2">Responsabilidades</h3>
+                    <p class="mb-4">Recomendamos consultar um advogado para validação legal de seus documentos. A plataforma oferece ferramentas, mas não substitui aconselhamento jurídico profissional.</p>
+                    <h3 class="text-text-primary font-semibold mt-4 mb-2">Limitações</h3>
+                    <p class="mb-4">Não nos responsabilizamos por decisões médicas ou legais baseadas nos documentos criados. O usuário deve sempre buscar orientação profissional adequada.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form validation state
+        let formState = {
+            fullName: false,
+            email: false,
+            password: false,
+            confirmPassword: false,
+            lgpdConsent: false,
+            termsConsent: false
+        };
+
+        // Password strength calculation
+        function calculatePasswordStrength(password) {
+            let score = 0;
+            let feedback = [];
+
+            if (password.length >= 8) score += 1;
+            else feedback.push('pelo menos 8 caracteres');
+
+            if (/[a-z]/.test(password)) score += 1;
+            else feedback.push('letras minúsculas');
+
+            if (/[A-Z]/.test(password)) score += 1;
+            else feedback.push('letras maiúsculas');
+
+            if (/[0-9]/.test(password)) score += 1;
+            else feedback.push('números');
+
+            if (/[^A-Za-z0-9]/.test(password)) score += 1;
+            else feedback.push('símbolos');
+
+            return { score, feedback };
+        }
+
+        // Update password strength indicator
+        function updatePasswordStrength(password) {
+            const { score, feedback } = calculatePasswordStrength(password);
+            const strengthBar = document.getElementById('password-strength-bar');
+            const strengthText = document.getElementById('password-strength-text');
+
+            const strengthLevels = [
+                { width: '0%', color: 'bg-gray-300', text: '' },
+                { width: '20%', color: 'bg-error', text: 'Muito fraca' },
+                { width: '40%', color: 'bg-warning', text: 'Fraca' },
+                { width: '60%', color: 'bg-warning', text: 'Regular' },
+                { width: '80%', color: 'bg-secondary', text: 'Boa' },
+                { width: '100%', color: 'bg-success', text: 'Forte' }
+            ];
+
+            const level = strengthLevels[score];
+            strengthBar.style.width = level.width;
+            strengthBar.className = `h-2 rounded-full transition-all duration-300 ${level.color}`;
+            strengthText.textContent = level.text;
+
+            return score >= 4; // Require at least 4/5 criteria
+        }
+
+        // Validate email format
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Show validation message
+        function showValidationMessage(fieldId, message, isError = true) {
+            const messageElement = document.getElementById(`${fieldId}-error`);
+            messageElement.textContent = message;
+            messageElement.className = `validation-message ${isError ? 'error' : 'success'}`;
+        }
+
+        // Clear validation message
+        function clearValidationMessage(fieldId) {
+            const messageElement = document.getElementById(`${fieldId}-error`);
+            messageElement.textContent = '';
+            messageElement.className = 'validation-message';
+        }
+
+        // Update submit button state
+        function updateSubmitButton() {
+            const submitButton = document.getElementById('submit-button');
+            const allValid = Object.values(formState).every(valid => valid);
+            
+            submitButton.disabled = !allValid;
+            if (allValid) {
+                submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Password visibility toggles
+        document.getElementById('toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const eyeClosed = document.getElementById('eye-closed');
+            const eyeOpen = document.getElementById('eye-open');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeClosed.classList.add('hidden');
+                eyeOpen.classList.remove('hidden');
+            } else {
+                passwordInput.type = 'password';
+                eyeClosed.classList.remove('hidden');
+                eyeOpen.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('toggle-confirm-password').addEventListener('click', function() {
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const eyeClosedConfirm = document.getElementById('eye-closed-confirm');
+            const eyeOpenConfirm = document.getElementById('eye-open-confirm');
+            
+            if (confirmPasswordInput.type === 'password') {
+                confirmPasswordInput.type = 'text';
+                eyeClosedConfirm.classList.add('hidden');
+                eyeOpenConfirm.classList.remove('hidden');
+            } else {
+                confirmPasswordInput.type = 'password';
+                eyeClosedConfirm.classList.remove('hidden');
+                eyeOpenConfirm.classList.add('hidden');
+            }
+        });
+
+        // Form field validations
+        document.getElementById('fullName').addEventListener('input', function() {
+            const value = this.value.trim();
+            if (value.length >= 2) {
+                formState.fullName = true;
+                clearValidationMessage('fullName');
+            } else {
+                formState.fullName = false;
+                showValidationMessage('fullName', 'Nome deve ter pelo menos 2 caracteres');
+            }
+            updateSubmitButton();
+        });
+
+        document.getElementById('email').addEventListener('input', function() {
+            const value = this.value.trim();
+            if (validateEmail(value)) {
+                formState.email = true;
+                clearValidationMessage('email');
+            } else {
+                formState.email = false;
+                if (value.length > 0) {
+                    showValidationMessage('email', 'Digite um e-mail válido');
+                } else {
+                    showValidationMessage('email', 'E-mail é obrigatório');
+                }
+            }
+            updateSubmitButton();
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            const value = this.value;
+            const isStrong = updatePasswordStrength(value);
+            
+            if (isStrong && value.length >= 8) {
+                formState.password = true;
+                clearValidationMessage('password');
+            } else {
+                formState.password = false;
+                if (value.length > 0 && value.length < 8) {
+                    showValidationMessage('password', 'Senha deve ter pelo menos 8 caracteres');
+                } else if (value.length >= 8 && !isStrong) {
+                    showValidationMessage('password', 'Senha precisa ser mais forte');
+                }
+            }
+
+            // Revalidate confirm password
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (confirmPassword) {
+                if (value === confirmPassword) {
+                    formState.confirmPassword = true;
+                    clearValidationMessage('confirmPassword');
+                } else {
+                    formState.confirmPassword = false;
+                    showValidationMessage('confirmPassword', 'Senhas não coincidem');
+                }
+            }
+            
+            updateSubmitButton();
+        });
+
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const value = this.value;
+            const password = document.getElementById('password').value;
+            
+            if (value === password && value.length > 0) {
+                formState.confirmPassword = true;
+                clearValidationMessage('confirmPassword');
+            } else {
+                formState.confirmPassword = false;
+                if (value.length > 0) {
+                    showValidationMessage('confirmPassword', 'Senhas não coincidem');
+                }
+            }
+            updateSubmitButton();
+        });
+
+        document.getElementById('lgpd-consent').addEventListener('change', function() {
+            formState.lgpdConsent = this.checked;
+            updateSubmitButton();
+        });
+
+        document.getElementById('terms-consent').addEventListener('change', function() {
+            formState.termsConsent = this.checked;
+            updateSubmitButton();
+        });
+
+        // Modal functionality
+        document.getElementById('privacy-policy-link').addEventListener('click', function() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+        });
+
+        document.getElementById('close-privacy-modal').addEventListener('click', function() {
+            document.getElementById('privacy-modal').classList.add('hidden');
+        });
+
+        document.getElementById('terms-service-link').addEventListener('click', function() {
+            document.getElementById('terms-modal').classList.remove('hidden');
+        });
+
+        document.getElementById('close-terms-modal').addEventListener('click', function() {
+            document.getElementById('terms-modal').classList.add('hidden');
+        });
+
+        // Close modals when clicking outside
+        document.getElementById('privacy-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('terms-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.classList.add('hidden');
+            }
+        });
+
+        // Form submission
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.getElementById('submit-button');
+            const submitText = document.getElementById('submit-text');
+            const loadingSpinner = document.getElementById('loading-spinner');
+            
+            // Show loading state
+            submitButton.disabled = true;
+            submitText.textContent = 'Criando conta...';
+            loadingSpinner.classList.remove('hidden');
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Mock successful registration
+                const userData = {
+                    fullName: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    registeredAt: new Date().toISOString()
+                };
+                
+                // Store user data in localStorage (mock authentication)
+                localStorage.setItem('user', JSON.stringify(userData));
+                localStorage.setItem('authToken', 'mock-jwt-token-' + Date.now());
+                
+                // Show success message
+                submitText.textContent = 'Conta criada com sucesso!';
+                loadingSpinner.classList.add('hidden');
+                
+                // Redirect to dashboard
+                setTimeout(() => {
+                    window.location.href = 'document_dashboard.html';
+                }, 1500);
+                
+            }, 2000);
+        });
+
+        // Initialize form state
+        updateSubmitButton();
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testamento Vital Digital - Crie seu Testamento Vital de forma Segura</title>
+    <meta name="description" content="Plataforma digital para criação de testamentos vitais legalmente válidos no Brasil. Seguro, privado e em conformidade com a LGPD." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftestamento8674back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                    <span class="text-xl font-heading font-semibold text-primary">Testamento Vital Digital</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <a href="user_login.html" class="text-text-secondary hover:text-primary transition-standard">Entrar</a>
+                    <a href="user_registration.html" class="btn-primary">Criar Conta</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-100">
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <a href="user_login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Entrar</a>
+                    <a href="user_registration.html" class="block px-3 py-2 bg-primary text-white rounded-md text-center">Criar Conta</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-50 to-secondary-50 py-16 lg:py-24 overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)"/>
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div class="text-center lg:text-left">
+                    <h1 class="text-4xl lg:text-5xl font-heading font-semibold text-text-primary mb-6 text-balance">
+                        Crie seu <span class="text-primary">Testamento Vital</span> de forma segura e legal
+                    </h1>
+                    <p class="text-lg text-text-secondary mb-8 text-balance">
+                        Documente suas preferências de tratamento médico com nossa plataforma digital segura, 
+                        em conformidade com a legislação brasileira e LGPD.
+                    </p>
+
+                    <!-- Trust Signals -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+                        <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                            <svg class="h-5 w-5 text-success mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-text-primary">LGPD Compliant</span>
+                        </div>
+                        <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                            <svg class="h-5 w-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-text-primary">Criptografia SHA-256</span>
+                        </div>
+                        <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                            <svg class="h-5 w-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-sm font-medium text-text-primary">Marco Legal Brasileiro</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="user_registration.html" class="btn-primary text-center px-8 py-4 text-lg">
+                            Criar Conta Gratuita
+                        </a>
+                        <a href="user_login.html" class="bg-white text-primary border-2 border-primary px-8 py-4 rounded-md font-medium text-lg hover:bg-primary-50 transition-standard text-center">
+                            Fazer Login
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="relative">
+                    <div class="relative bg-white rounded-2xl shadow-xl p-8 transform rotate-3 hover:rotate-0 transition-all duration-300">
+                        <img src="https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Pessoa assinando documento legal" class="w-full h-64 object-cover rounded-lg" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div class="absolute -top-4 -right-4 bg-success text-white p-3 rounded-full shadow-lg">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-heading font-semibold text-text-primary mb-4">
+                    Por que escolher nossa plataforma?
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Oferecemos a solução mais completa e segura para criação de testamentos vitais no Brasil
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="card text-center hover:shadow-md transition-all duration-200">
+                    <div class="bg-primary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">
+                        Assistente Guiado
+                    </h3>
+                    <p class="text-text-secondary">
+                        Interface intuitiva que te guia passo a passo na criação do seu testamento vital, 
+                        garantindo que todos os aspectos legais sejam cobertos.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="card text-center hover:shadow-md transition-all duration-200">
+                    <div class="bg-secondary-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">
+                        Armazenamento Seguro
+                    </h3>
+                    <p class="text-text-secondary">
+                        Seus documentos são protegidos com criptografia de nível bancário e 
+                        armazenados em servidores seguros no Brasil.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="card text-center hover:shadow-md transition-all duration-200">
+                    <div class="bg-accent-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-text-primary mb-4">
+                        Compartilhamento Controlado
+                    </h3>
+                    <p class="text-text-secondary">
+                        Compartilhe seus documentos com familiares e médicos através de links seguros 
+                        com controle de acesso e prazo de validade.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                    <div class="text-3xl font-heading font-bold text-primary mb-2">99.9%</div>
+                    <div class="text-text-secondary">Disponibilidade</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-heading font-bold text-secondary mb-2">256-bit</div>
+                    <div class="text-text-secondary">Criptografia</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-heading font-bold text-success mb-2">100%</div>
+                    <div class="text-text-secondary">LGPD Compliant</div>
+                </div>
+                <div>
+                    <div class="text-3xl font-heading font-bold text-warning mb-2">24/7</div>
+                    <div class="text-text-secondary">Suporte</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Importance Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-heading font-semibold text-text-primary mb-4">
+                    A Importância Legal do Testamento Vital
+                </h2>
+                <p class="text-lg text-text-secondary">
+                    Entenda como o testamento vital é reconhecido no ordenamento jurídico brasileiro
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <img src="https://images.pixabay.com/photo/2017/07/31/11/21/people-2557396_1280.jpg" alt="Família conversando sobre cuidados médicos" class="w-full h-64 object-cover rounded-lg shadow-md" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                </div>
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-primary-100 p-2 rounded-full mr-4 mt-1">
+                                <svg class="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-2">Resolução CFM nº 1.995/2012</h3>
+                                <p class="text-text-secondary">Reconhece oficialmente as diretivas antecipadas de vontade no Brasil.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-secondary-100 p-2 rounded-full mr-4 mt-1">
+                                <svg class="h-5 w-5 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-2">Código Civil Brasileiro</h3>
+                                <p class="text-text-secondary">Garante o direito à autonomia da vontade e autodeterminação.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-success-100 p-2 rounded-full mr-4 mt-1">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-text-primary mb-2">Constituição Federal</h3>
+                                <p class="text-text-secondary">Assegura a dignidade da pessoa humana e o direito à vida digna.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-heading font-semibold text-text-primary mb-4">
+                    O que nossos usuários dizem
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Maria Silva" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div>
+                            <div class="font-semibold text-text-primary">Maria Silva</div>
+                            <div class="text-sm text-text-secondary">Advogada, 52 anos</div>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary italic">
+                        "A plataforma é muito intuitiva e me deu a tranquilidade de saber que meus desejos 
+                        estão documentados de forma legal e segura."
+                    </p>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="João Santos" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div>
+                            <div class="font-semibold text-text-primary">João Santos</div>
+                            <div class="text-sm text-text-secondary">Médico, 45 anos</div>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary italic">
+                        "Como médico, recomendo esta plataforma para meus pacientes. É uma ferramenta 
+                        essencial para garantir que os desejos sejam respeitados."
+                    </p>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="card">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?auto=format&fit=crop&w=400&q=80" alt="Ana Costa" class="w-12 h-12 rounded-full object-cover mr-4" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                        <div>
+                            <div class="font-semibold text-text-primary">Ana Costa</div>
+                            <div class="text-sm text-text-secondary">Professora, 38 anos</div>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary italic">
+                        "O processo foi muito mais simples do que imaginei. Em poucos minutos 
+                        consegui criar meu testamento vital completo."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-heading font-semibold mb-4">
+                Comece hoje mesmo
+            </h2>
+            <p class="text-xl text-primary-100 mb-8">
+                Crie seu testamento vital em minutos e tenha a tranquilidade de saber 
+                que seus desejos serão respeitados.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="user_registration.html" class="bg-white text-primary px-8 py-4 rounded-md font-medium text-lg hover:bg-primary-50 transition-standard">
+                    Criar Conta Gratuita
+                </a>
+                <a href="about_us.html" class="border-2 border-white text-white px-8 py-4 rounded-md font-medium text-lg hover:bg-white hover:text-primary transition-standard">
+                    Saiba Mais
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold">Testamento Vital Digital</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Plataforma segura e legal para criação de testamentos vitais no Brasil, 
+                        em conformidade com a LGPD e o marco regulatório brasileiro.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">LGPD</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SSL</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SHA-256</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about_us.html" class="text-gray-300 hover:text-white transition-standard">Sobre</a></li>
+                        <li><a href="user_registration.html" class="text-gray-300 hover:text-white transition-standard">Criar Conta</a></li>
+                        <li><a href="user_login.html" class="text-gray-300 hover:text-white transition-standard">Entrar</a></li>
+                        <li><a href="living_will_wizard.html" class="text-gray-300 hover:text-white transition-standard">Criar Testamento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Termos de Uso</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Política de Privacidade</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">LGPD</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Suporte</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Testamento Vital Digital. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation to CTA buttons
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.href && !this.href.includes('#')) {
+                    const originalText = this.textContent;
+                    this.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Carregando...';
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Documentos - Testamento Vital Digital</title>
+    <meta name="description" content="Gerencie seus testamentos vitais de forma segura. Visualize, compartilhe e organize seus documentos legais." />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Ftestamento8674back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Header Navigation -->
+    <header class="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="landing_page.html" class="flex items-center">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold text-primary">Testamento Vital Digital</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="document_dashboard.html" class="text-primary font-medium">Meus Documentos</a>
+                    <a href="living_will_wizard.html" class="text-text-secondary hover:text-primary transition-standard">Criar Testamento</a>
+                    <a href="about_us.html" class="text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    
+                    <!-- User Menu -->
+                    <div class="relative">
+                        <button type="button" class="flex items-center text-text-secondary hover:text-primary transition-standard" id="user-menu-button">
+                            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center mr-2">
+                                <svg class="h-5 w-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="text-sm">Maria Silva</span>
+                            <svg class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-100 hidden" id="user-dropdown">
+                            <div class="py-1">
+                                <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Perfil</a>
+                                <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Configurações</a>
+                                <div class="border-t border-gray-100"></div>
+                                <a href="user_login.html" class="block px-4 py-2 text-sm text-text-secondary hover:bg-surface">Sair</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-text-secondary hover:text-primary p-2" id="mobile-menu-button">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 border-t border-gray-100">
+                    <a href="document_dashboard.html" class="block px-3 py-2 text-primary font-medium">Meus Documentos</a>
+                    <a href="living_will_wizard.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Criar Testamento</a>
+                    <a href="about_us.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Sobre</a>
+                    <div class="border-t border-gray-100 mt-2 pt-2">
+                        <a href="javascript:void(0)" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Perfil</a>
+                        <a href="user_login.html" class="block px-3 py-2 text-text-secondary hover:text-primary transition-standard">Sair</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                <div class="mb-4 lg:mb-0">
+                    <h1 class="text-3xl font-heading font-semibold text-text-primary mb-2">
+                        Meus Documentos
+                    </h1>
+                    <p class="text-text-secondary">
+                        Gerencie seus testamentos vitais de forma segura e organizada
+                    </p>
+                </div>
+                
+                <!-- Primary CTA -->
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="document_upload.html" class="bg-white text-primary border-2 border-primary px-6 py-3 rounded-md font-medium hover:bg-primary-50 transition-standard text-center">
+                        <svg class="h-5 w-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                        </svg>
+                        Upload PDF
+                    </a>
+                    <a href="living_will_wizard.html" class="btn-primary text-center">
+                        <svg class="h-5 w-5 inline mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                        </svg>
+                        Criar Novo Testamento Vital
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="bg-primary-100 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Total de Documentos</p>
+                        <p class="text-2xl font-heading font-semibold text-text-primary">3</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="bg-secondary-100 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Última Atualização</p>
+                        <p class="text-lg font-heading font-semibold text-text-primary">15/09/2025</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="bg-success-100 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-success" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Verificados</p>
+                        <p class="text-2xl font-heading font-semibold text-text-primary">3</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="flex items-center">
+                    <div class="bg-warning-100 p-3 rounded-full">
+                        <svg class="h-6 w-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                        </svg>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm text-text-secondary">Compartilhados</p>
+                        <p class="text-2xl font-heading font-semibold text-text-primary">1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <!-- Search and Filters -->
+                <div class="flex flex-col sm:flex-row gap-4 flex-1">
+                    <div class="relative flex-1 max-w-md">
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" placeholder="Buscar documentos..." class="form-input pl-10" id="search-input" />
+                    </div>
+                    
+                    <select class="form-input w-full sm:w-auto" id="sort-select">
+                        <option value="date-desc">Mais recentes</option>
+                        <option value="date-asc">Mais antigos</option>
+                        <option value="name-asc">Nome A-Z</option>
+                        <option value="name-desc">Nome Z-A</option>
+                        <option value="version-desc">Versão mais alta</option>
+                    </select>
+                </div>
+
+                <!-- View Toggle -->
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-text-secondary">Visualização:</span>
+                    <div class="flex bg-surface rounded-md p-1">
+                        <button type="button" class="p-2 rounded text-text-secondary hover:text-primary hover:bg-white transition-standard active" id="grid-view-btn">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/>
+                            </svg>
+                        </button>
+                        <button type="button" class="p-2 rounded text-text-secondary hover:text-primary hover:bg-white transition-standard" id="list-view-btn">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Documents Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="documents-grid">
+            <!-- Document Card 1 -->
+            <div class="card hover:shadow-md transition-all duration-200 document-card" data-name="testamento-vital-principal" data-date="2025-09-15" data-version="2">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1">
+                        <h3 class="font-heading font-semibold text-text-primary mb-1">
+                            Testamento Vital Principal
+                        </h3>
+                        <p class="text-sm text-text-secondary">Versão 2.0</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="status-badge success">
+                            <svg class="h-3 w-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Verificado
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Preview -->
+                <div class="bg-surface rounded-lg p-4 mb-4">
+                    <div class="flex items-center justify-center h-24 bg-white rounded border-2 border-dashed border-gray-200">
+                        <svg class="h-12 w-12 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Metadata -->
+                <div class="space-y-2 mb-4">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Criado em:</span>
+                        <span class="text-text-primary">15/09/2025 14:30</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Hash SHA-256:</span>
+                        <span class="text-text-primary font-mono text-xs">a1b2c3d4...ef56</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Status:</span>
+                        <span class="text-success font-medium">Compartilhado</span>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex gap-2">
+                    <a href="document_viewer.html" class="flex-1 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-standard text-center">
+                        Visualizar
+                    </a>
+                    <a href="document_sharing.html" class="bg-secondary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-secondary-800 transition-standard">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                        </svg>
+                    </a>
+                    <button type="button" class="text-accent hover:bg-accent-50 px-4 py-2 rounded-md text-sm font-medium transition-standard" onclick="confirmDelete('Testamento Vital Principal')">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Document Card 2 -->
+            <div class="card hover:shadow-md transition-all duration-200 document-card" data-name="diretivas-medicas-especiais" data-date="2025-08-22" data-version="1">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1">
+                        <h3 class="font-heading font-semibold text-text-primary mb-1">
+                            Diretivas Médicas Especiais
+                        </h3>
+                        <p class="text-sm text-text-secondary">Versão 1.0</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="status-badge success">
+                            <svg class="h-3 w-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Verificado
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Preview -->
+                <div class="bg-surface rounded-lg p-4 mb-4">
+                    <div class="flex items-center justify-center h-24 bg-white rounded border-2 border-dashed border-gray-200">
+                        <svg class="h-12 w-12 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Metadata -->
+                <div class="space-y-2 mb-4">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Criado em:</span>
+                        <span class="text-text-primary">22/08/2025 09:15</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Hash SHA-256:</span>
+                        <span class="text-text-primary font-mono text-xs">b2c3d4e5...f678</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Status:</span>
+                        <span class="text-text-secondary">Privado</span>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex gap-2">
+                    <a href="document_viewer.html" class="flex-1 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-standard text-center">
+                        Visualizar
+                    </a>
+                    <a href="document_sharing.html" class="bg-secondary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-secondary-800 transition-standard">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                        </svg>
+                    </a>
+                    <button type="button" class="text-accent hover:bg-accent-50 px-4 py-2 rounded-md text-sm font-medium transition-standard" onclick="confirmDelete('Diretivas Médicas Especiais')">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Document Card 3 -->
+            <div class="card hover:shadow-md transition-all duration-200 document-card" data-name="procuracao-cuidados-saude" data-date="2025-07-10" data-version="1">
+                <div class="flex items-start justify-between mb-4">
+                    <div class="flex-1">
+                        <h3 class="font-heading font-semibold text-text-primary mb-1">
+                            Procuração para Cuidados de Saúde
+                        </h3>
+                        <p class="text-sm text-text-secondary">Versão 1.0</p>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <div class="status-badge success">
+                            <svg class="h-3 w-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Verificado
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Preview -->
+                <div class="bg-surface rounded-lg p-4 mb-4">
+                    <div class="flex items-center justify-center h-24 bg-white rounded border-2 border-dashed border-gray-200">
+                        <svg class="h-12 w-12 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Metadata -->
+                <div class="space-y-2 mb-4">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Criado em:</span>
+                        <span class="text-text-primary">10/07/2025 16:45</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Hash SHA-256:</span>
+                        <span class="text-text-primary font-mono text-xs">c3d4e5f6...789a</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-text-secondary">Status:</span>
+                        <span class="text-text-secondary">Privado</span>
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex gap-2">
+                    <a href="document_viewer.html" class="flex-1 bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-standard text-center">
+                        Visualizar
+                    </a>
+                    <a href="document_sharing.html" class="bg-secondary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-secondary-800 transition-standard">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                        </svg>
+                    </a>
+                    <button type="button" class="text-accent hover:bg-accent-50 px-4 py-2 rounded-md text-sm font-medium transition-standard" onclick="confirmDelete('Procuração para Cuidados de Saúde')">
+                        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- List View (Hidden by default) -->
+        <div class="hidden space-y-4" id="documents-list">
+            <!-- List items will be populated by JavaScript -->
+        </div>
+
+        <!-- Empty State (Hidden when documents exist) -->
+        <div class="text-center py-12 hidden" id="empty-state">
+            <svg class="mx-auto h-24 w-24 text-text-secondary mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <h3 class="text-lg font-heading font-semibold text-text-primary mb-2">
+                Nenhum documento encontrado
+            </h3>
+            <p class="text-text-secondary mb-6">
+                Crie seu primeiro testamento vital para começar
+            </p>
+            <a href="living_will_wizard.html" class="btn-primary">
+                Criar Primeiro Testamento
+            </a>
+        </div>
+    </main>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50" id="delete-modal">
+        <div class="bg-white rounded-lg max-w-md w-full p-6">
+            <div class="flex items-center mb-4">
+                <div class="bg-accent-100 p-3 rounded-full mr-4">
+                    <svg class="h-6 w-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-heading font-semibold text-text-primary">
+                        Confirmar Exclusão
+                    </h3>
+                </div>
+            </div>
+            <p class="text-text-secondary mb-6">
+                Tem certeza que deseja excluir o documento "<span id="delete-document-name"></span>"? 
+                Esta ação não pode ser desfeita.
+            </p>
+            <div class="flex gap-3 justify-end">
+                <button type="button" class="bg-white text-text-secondary border border-gray-200 px-4 py-2 rounded-md font-medium hover:bg-surface transition-standard" onclick="closeDeleteModal()">
+                    Cancelar
+                </button>
+                <button type="button" class="bg-accent text-white px-4 py-2 rounded-md font-medium hover:bg-accent-700 transition-standard" onclick="deleteDocument()">
+                    Excluir Documento
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10,9 9,9 8,9"/>
+                        </svg>
+                        <span class="text-xl font-heading font-semibold">Testamento Vital Digital</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Plataforma segura e legal para criação de testamentos vitais no Brasil, 
+                        em conformidade com a LGPD e o marco regulatório brasileiro.
+                    </p>
+                    <div class="flex space-x-4">
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">LGPD</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SSL</span>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <span class="text-xs text-gray-300">SHA-256</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about_us.html" class="text-gray-300 hover:text-white transition-standard">Sobre</a></li>
+                        <li><a href="user_registration.html" class="text-gray-300 hover:text-white transition-standard">Criar Conta</a></li>
+                        <li><a href="user_login.html" class="text-gray-300 hover:text-white transition-standard">Entrar</a></li>
+                        <li><a href="living_will_wizard.html" class="text-gray-300 hover:text-white transition-standard">Criar Testamento</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h3 class="font-semibold mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Termos de Uso</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Política de Privacidade</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">LGPD</a></li>
+                        <li><a href="javascript:void(0)" class="text-gray-300 hover:text-white transition-standard">Suporte</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Testamento Vital Digital. Todos os direitos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // User menu toggle
+        document.getElementById('user-menu-button').addEventListener('click', function() {
+            const userDropdown = document.getElementById('user-dropdown');
+            userDropdown.classList.toggle('hidden');
+        });
+
+        // Close user menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const userMenu = document.getElementById('user-menu-button');
+            const userDropdown = document.getElementById('user-dropdown');
+            
+            if (!userMenu.contains(event.target) && !userDropdown.contains(event.target)) {
+                userDropdown.classList.add('hidden');
+            }
+        });
+
+        // View toggle functionality
+        const gridViewBtn = document.getElementById('grid-view-btn');
+        const listViewBtn = document.getElementById('list-view-btn');
+        const documentsGrid = document.getElementById('documents-grid');
+        const documentsList = document.getElementById('documents-list');
+
+        gridViewBtn.addEventListener('click', function() {
+            gridViewBtn.classList.add('bg-white', 'text-primary');
+            listViewBtn.classList.remove('bg-white', 'text-primary');
+            documentsGrid.classList.remove('hidden');
+            documentsList.classList.add('hidden');
+        });
+
+        listViewBtn.addEventListener('click', function() {
+            listViewBtn.classList.add('bg-white', 'text-primary');
+            gridViewBtn.classList.remove('bg-white', 'text-primary');
+            documentsGrid.classList.add('hidden');
+            documentsList.classList.remove('hidden');
+            generateListView();
+        });
+
+        // Generate list view
+        function generateListView() {
+            const cards = document.querySelectorAll('.document-card');
+            const listContainer = document.getElementById('documents-list');
+            listContainer.innerHTML = '';
+
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent;
+                const version = card.querySelector('p').textContent;
+                const date = card.getAttribute('data-date');
+                const status = card.querySelector('.status-badge').textContent.trim();
+                
+                const listItem = document.createElement('div');
+                listItem.className = 'card hover:shadow-md transition-all duration-200';
+                listItem.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-surface p-3 rounded-lg">
+                                <svg class="h-8 w-8 text-text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-heading font-semibold text-text-primary">${title}</h3>
+                                <p class="text-sm text-text-secondary">${version} • ${formatDate(date)}</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="status-badge ${status.includes('Verificado') ? 'success' : 'warning'}">
+                                ${status}
+                            </div>
+                            <div class="flex gap-2">
+                                <a href="document_viewer.html" class="bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary-700 transition-standard">
+                                    Visualizar
+                                </a>
+                                <a href="document_sharing.html" class="bg-secondary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-secondary-800 transition-standard">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"/>
+                                    </svg>
+                                </a>
+                                <button type="button" class="text-accent hover:bg-accent-50 px-4 py-2 rounded-md text-sm font-medium transition-standard" onclick="confirmDelete('${title}')">
+                                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                listContainer.appendChild(listItem);
+            });
+        }
+
+        // Format date helper
+        function formatDate(dateString) {
+            const [year, month, day] = dateString.split('-');
+            return `${day}/${month}/${year}`;
+        }
+
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const cards = document.querySelectorAll('.document-card');
+            
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const isVisible = title.includes(searchTerm);
+                card.style.display = isVisible ? 'block' : 'none';
+            });
+        });
+
+        // Sort functionality
+        document.getElementById('sort-select').addEventListener('change', function(e) {
+            const sortBy = e.target.value;
+            const container = document.getElementById('documents-grid');
+            const cards = Array.from(document.querySelectorAll('.document-card'));
+            
+            cards.sort((a, b) => {
+                switch(sortBy) {
+                    case 'date-desc':
+                        return new Date(b.getAttribute('data-date')) - new Date(a.getAttribute('data-date'));
+                    case 'date-asc':
+                        return new Date(a.getAttribute('data-date')) - new Date(b.getAttribute('data-date'));
+                    case 'name-asc':
+                        return a.getAttribute('data-name').localeCompare(b.getAttribute('data-name'));
+                    case 'name-desc':
+                        return b.getAttribute('data-name').localeCompare(a.getAttribute('data-name'));
+                    case 'version-desc':
+                        return parseInt(b.getAttribute('data-version')) - parseInt(a.getAttribute('data-version'));
+                    default:
+                        return 0;
+                }
+            });
+            
+            // Re-append sorted cards
+            cards.forEach(card => container.appendChild(card));
+        });
+
+        // Delete confirmation modal
+        let documentToDelete = '';
+
+        function confirmDelete(documentName) {
+            documentToDelete = documentName;
+            document.getElementById('delete-document-name').textContent = documentName;
+            document.getElementById('delete-modal').classList.remove('hidden');
+        }
+
+        function closeDeleteModal() {
+            document.getElementById('delete-modal').classList.add('hidden');
+            documentToDelete = '';
+        }
+
+        function deleteDocument() {
+            // In a real app, this would make an API call
+            console.log('Deleting document:', documentToDelete);
+            
+            // Find and remove the card
+            const cards = document.querySelectorAll('.document-card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3').textContent;
+                if (title === documentToDelete) {
+                    card.remove();
+                }
+            });
+            
+            closeDeleteModal();
+            
+            // Show success message (you could implement a toast notification here)
+            alert('Documento excluído com sucesso!');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('delete-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDeleteModal();
+            }
+        });
+
+        // Initialize view
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial active state for grid view
+            gridViewBtn.classList.add('bg-white', 'text-primary');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
